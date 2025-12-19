@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Reviewer</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Resume Reviewer</h1>
+            <p>Upload your resume (PDF or Image) to get instant feedback on ATS compatibility, role suggestions, salary estimates, and more</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="input-section">
+                <label for="fileInput">Upload your resume (PDF or Image):</label>
+                
+                <div class="file-upload-area" id="fileUploadArea">
+                    <input type="file" id="fileInput" accept=".pdf,.png,.jpg,.jpeg,.gif,.bmp" style="display: none;">
+                    <div class="upload-placeholder">
+                        <div class="upload-icon">📄</div>
+                        <p class="upload-text">Click to browse or drag and drop your resume here</p>
+                        <p class="upload-hint">Supports: PDF, PNG, JPG, JPEG, GIF, BMP (Max 10MB)</p>
+                    </div>
+                    <div class="file-preview" id="filePreview" style="display: none;">
+                        <div class="file-info">
+                            <span class="file-name" id="fileName"></span>
+                            <button class="remove-file" id="removeFile">✕</button>
+                        </div>
+                        <div class="file-preview-image" id="filePreviewImage"></div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="analyzeBtn" class="btn btn-primary" disabled>Analyze Resume</button>
+                    <button id="downloadBtn" class="btn btn-secondary" style="display: none;">Download Report (JSON)</button>
+                </div>
+            </div>
+            
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Extracting text and analyzing your resume... This may take a few seconds.</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message"></div>
+            
+            <div id="results" class="results"></div>
+        </div>
+    </div>
+    
+    <script src="static/script.js"></script>
+</body>
+</html>
